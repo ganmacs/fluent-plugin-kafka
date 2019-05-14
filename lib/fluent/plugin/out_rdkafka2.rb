@@ -231,7 +231,9 @@ DESC
     def write(chunk)
       tag = chunk.metadata.tag
       topic = (chunk.metadata.variables && chunk.metadata.variables[@topic_key_sym]) || @default_topic || tag
-
+      puts nil, '<============================================================ OUTPUT START HERE'
+      puts chunk_meta: chunk.metadata, topic_key_sym: @topic_key_sym, default_topic: @default_topic, tag: tag
+      puts '<============================================================ OUTPUT CLOSE HERE', nil
       handlers = []
       record_buf = nil
       record_buf_bytes = nil
